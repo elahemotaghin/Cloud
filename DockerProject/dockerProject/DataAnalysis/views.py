@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
-from django.db.models import Sum
+from django.db.models import Sum, Count
 import matplotlib.pyplot as plt
 import RestAPI
 import json
@@ -93,4 +93,33 @@ def comparePublisherSales(request):
     plt.plot(years, totals2, label=publisher2)
     plt.legend()
     plt.savefig('DataAnalysis/result/comparePublisherSales.png')
+    return HttpResponse(200)
+
+@csrf_exempt
+def compareSalesByGenre(request):
+    year1 = int(request.POST.get('year1'))
+    year2 = int(request.POST.get('year2'))
+    genres = RestAPI.models.Game.objects.all().values_list('genre', flat=True).distinct()
+    totals = {}
+
+    for i in range(0, len(genres)):
+        totals[genres[i]] = []
+    for i in range(year1, year2 + 1):
+        for genre in genres:
+            yearGames = RestAPI.models.Game.objects.filter(year=i, genre=genre).aggregate(Sum('Global_Sales'))
+            if yearGames['Global_Sales__sum'] == None:
+                totals[genre].append(0)
+            else:
+                totals[genre].append(yearGames['Global_Sales__sum'])
+    x = []
+    for genre in genres:
+        x.append(sum(totals[genre]))
+
+    plt.title(str(year1)+' to '+str(year2))
+    plt.bar(list(genres), x, color='pink', width=0.25)
+    plt.xlabel("Genres")
+    plt.ylabel("Totals")
+    plt.xticks(rotation=90)
+    plt.savefig(f'DataAnalysis/result/compareSalesByGenre{year1}to{year2}.png')
+
     return HttpResponse(200)
