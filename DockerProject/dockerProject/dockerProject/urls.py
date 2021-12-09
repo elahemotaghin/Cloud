@@ -15,9 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('RestAPI/', include('RestAPI.urls')),
     path('DataAnalysis/', include('DataAnalysis.urls')),
+    path('Authorization/', include('Authorization.urls')),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('dj-rest-auth/', include('dj_rest_auth.urls')),
+    path('dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')),#create new user and get access token
 ]
+
+'''
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM4OTc4OTg3LCJpYXQiOjE2Mzg5Nzg2ODcsImp0aSI6IjJlODZhODJhZWMzMDQzNzlhNDhkMWYwMTZmMDQ3ODg1IiwidXNlcl9pZCI6MX0.4Vq_vYqPni1coNAGzF-gq4o_n5mZLNX8vSLp2Sk7N1I
+'''
