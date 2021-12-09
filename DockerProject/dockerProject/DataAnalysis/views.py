@@ -95,7 +95,7 @@ class ComparePublisherSales(APIView):
             publisher2_yearGames = RestAPI.models.Game.objects.filter(year=i, publisher=publisher2).aggregate(Sum('Global_Sales'))
             if publisher2_yearGames['Global_Sales__sum'] is not None:
                 totals2[i-year1] = publisher2_yearGames['Global_Sales__sum']
-
+        fig = plt.figure(figsize=(10, 5))
         plt.plot(years, totals1, label=publisher1)
         plt.plot(years, totals2, label=publisher2)
         plt.legend()
@@ -103,7 +103,7 @@ class ComparePublisherSales(APIView):
         return HttpResponse(200)
 
 class CompareSalesByGenre(APIView):
-    permission_classes = (IsAuthenticated)
+    permission_classes = (IsAuthenticated, )
 
     def post(self, request):
         year1 = int(request.POST.get('year1'))

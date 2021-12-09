@@ -1,0 +1,592 @@
+{
+	"info": {
+		"_postman_id": "c3f20cab-3b72-4d4d-ba11-df1301f414fa",
+		"name": "Cloud Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "reza",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456ali",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/dj-rest-auth/login/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"dj-rest-auth",
+						"login",
+						""
+					]
+				},
+				"description": "login as reza and get access token"
+			},
+			"response": []
+		},
+		{
+			"name": "register a new user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "Ali",
+							"type": "text"
+						},
+						{
+							"key": "password1",
+							"value": "13791379Ali",
+							"type": "text"
+						},
+						{
+							"key": "password2",
+							"value": "13791379Ali",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "zahra.sadat.tarvij@gmail.com",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/dj-rest-auth/registration/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"dj-rest-auth",
+						"registration",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Game Information by Rank",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5MDQyMTU0LCJpYXQiOjE2MzkwNDE4NTQsImp0aSI6IjQ1MWYyY2M3YTU1MjQzMjE4YjU5M2EzYzQ3NmE4N2UzIiwidXNlcl9pZCI6M30.zJnLgpV5MdJjm8OrQyhHpw21eRhIbCVbomOyUAi0cWY",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "rank",
+							"value": "23",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/RestAPI/gameInformation/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"RestAPI",
+						"gameInformation",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Games By Part Of Name",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5MDQyNDIyLCJpYXQiOjE2MzkwNDIxMjIsImp0aSI6IjIyNzc0ZmE5YWI5NDRlNzg4OGRkNmIwNjNhZjhlMjkzIiwidXNlcl9pZCI6M30.iVGk0wwromkRcWhIxRCalLsr3RC8Av_GHq-qc57mz3c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Grand",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/RestAPI/searchByName/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"RestAPI",
+						"searchByName",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Best n Games By Platform",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5MDQyODgyLCJpYXQiOjE2MzkwNDI1ODIsImp0aSI6IjZjODhjZDZmOGE0MDRhOGE5MWMyMDIxNzc4MTExOGI0IiwidXNlcl9pZCI6M30.AhXuGAbclnIg5m73Z36QGDZP-AmBWDthxJbMHp2EcLI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "n",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "platform",
+							"value": "Wii",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/RestAPI/bestGamesByPlatform/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"RestAPI",
+						"bestGamesByPlatform",
+						""
+					],
+					"query": [
+						{
+							"key": "n",
+							"value": "5",
+							"disabled": true
+						},
+						{
+							"key": "platform",
+							"value": "Wii",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Best n Games By Year",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5MDQyOTk2LCJpYXQiOjE2MzkwNDI2OTYsImp0aSI6Ijk1MDAwODYwOWE1ODRlZTI5MDNkMTUyYzJhNzM2N2YwIiwidXNlcl9pZCI6M30.dvOTKJDF2DJ3bA7DoIyhUEM2IPAizXzLHvQToUFnl3I",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "n",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "year",
+							"value": "2010",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/RestAPI/bestGamesByYear/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"RestAPI",
+						"bestGamesByYear",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Best n Games By Genre",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5MDQzMjQ4LCJpYXQiOjE2MzkwNDI5NDgsImp0aSI6IjE0M2Q1MmRhNWM4OTRmNmRiMTMwNTc5MjczZTBmNjFlIiwidXNlcl9pZCI6M30.EEp51D6sUyFYGLPFT1QrZNPp3y4eFtI7_WBvi9sfLz8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "n",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "genre",
+							"value": "Action",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/RestAPI/bestGamesByGenre/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"RestAPI",
+						"bestGamesByGenre",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Best 5 Games By Sale",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5MDQzMzk2LCJpYXQiOjE2MzkwNDMwOTYsImp0aSI6ImFjMTFiZWVhOGIxNzRhODBiNjY4MDNkYTc0NGRjODlhIiwidXNlcl9pZCI6M30.8frcdNOKDbBX6NYSFPRosqU8hRV2U0nQfqDjbtJgo3E",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "year",
+							"value": "2007",
+							"type": "text"
+						},
+						{
+							"key": "platform",
+							"value": "X360",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/RestAPI/best5GamesBySale/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"RestAPI",
+						"best5GamesBySale",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Compare EU and NA Sales",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer   eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5MDQzNTE4LCJpYXQiOjE2MzkwNDMyMTgsImp0aSI6Ijk0N2U4MDc3OGZmODRmNzc5NGUyNzk2YzJjMWI3ZmM0IiwidXNlcl9pZCI6M30.PrYiAOpnnCwS30kE4RonDHVefSLCzKK5bKGQwZ9GeLg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/RestAPI/compareBySale/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"RestAPI",
+						"compareBySale",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Compare NA, EU, JP , Other, Global Sales",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5MDQzNzk3LCJpYXQiOjE2MzkwNDM0OTcsImp0aSI6IjhiMzdhYzg0ZjY1MTRjYjZhNzRhZTI3MjZmYzI0ZWNjIiwidXNlcl9pZCI6M30._n1l6li-fexNwvbKiwic4C0SGqzWNO8dpqq99jcBJtg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name1",
+							"value": "Halo 3",
+							"type": "text"
+						},
+						{
+							"key": "name2",
+							"value": "Gran Turismo 4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/DataAnalysis/compareSales/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"DataAnalysis",
+						"compareSales",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Compare Sales Between Two Years",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5MDQ0NzA1LCJpYXQiOjE2MzkwNDQ0MDUsImp0aSI6ImEzNGQwNDIxNTc5ZTRmZWU4YTkwYjI4MGQzNWUxZmZmIiwidXNlcl9pZCI6M30.a0BUBIoQLTXH28EZJ3YxKVVBJWiQD7WijNmb3y3diyg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "year1",
+							"value": "2010",
+							"type": "text"
+						},
+						{
+							"key": "year2",
+							"value": "2018",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/DataAnalysis/compareSalesByYear/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"DataAnalysis",
+						"compareSalesByYear",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Compare Publisher Sales",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5MDQ1MDQwLCJpYXQiOjE2MzkwNDQ3NDAsImp0aSI6IjVhYzg0Y2Y0ODJiNTQyMjRhOGU2OWJhMDVmOTQyMTVjIiwidXNlcl9pZCI6M30.Cyzlgg66a61BG52eoJ3w2PXZeMBYGTp2BhIAynrwdFQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "year1",
+							"value": "2012",
+							"type": "text"
+						},
+						{
+							"key": "year2",
+							"value": "2017",
+							"type": "text"
+						},
+						{
+							"key": "publisher1",
+							"value": "Activision",
+							"type": "text"
+						},
+						{
+							"key": "publisher2",
+							"value": "Sony Computer Entertainment",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/DataAnalysis/comparePublisherSales/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"DataAnalysis",
+						"comparePublisherSales",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Compare Sales By Genre",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5MDQ1MjM0LCJpYXQiOjE2MzkwNDQ5MzQsImp0aSI6IjM5NzRjZDQ3NDMzODQzYTBhZjRiOTIwZjg3ZmM5NzdjIiwidXNlcl9pZCI6M30.oVHbN83Tkop5ENzoAUWOx6XOveCrojhZwUxZw7KiAKc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "year1",
+							"value": "2006",
+							"type": "text"
+						},
+						{
+							"key": "year2",
+							"value": "2014",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/DataAnalysis/compareSalesByGenre/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"DataAnalysis",
+						"compareSalesByGenre",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
